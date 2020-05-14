@@ -17,7 +17,7 @@ include_directories(${PATH_TO_NATIVE}/video_player/)
 
 
 # GLOB 会产生一个由所有匹配globbing表达式的文件组成的列表，并将其保存到变量中
-file(GLOB FILES_NATIVE_ROOT "${PATH_TO_NATIVE}/*.cpp")
+file(GLOB FILES_NATIVE_ROOT "${PATH_TO_NATIVE}/PlayerControllerNative.cpp")
 
 file(GLOB FILES_LIB_COMMON "${PATH_TO_NATIVE}/common/*.cpp")
 file(GLOB FILES_LIB_COMMON_EGL_CORE "${PATH_TO_NATIVE}/common/egl_core/*.cpp")
