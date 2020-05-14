@@ -230,8 +230,9 @@ public class MainActivity extends BaseActivity implements SeekBar.OnSeekBarChang
                 //playerController.setUseMediaCodec(false); // 这里设置是否使用硬解码，还是使用软解码
                 int width = getWindowManager().getDefaultDisplay().getWidth();
                 //String path = "http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4";
-                String path = "rtmp://58.200.131.2:1935/livetv/hunantv";
+                //String path = "rtmp://58.200.131.2:1935/livetv/hunantv";
                 //String path = "http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8";
+                String path = "/sdcard/movies/big_buck_bunny.mp4";
                 playerController.init(path, holder.getSurface(), width, width, new OnInitializedCallback() {
                     public void onInitialized(OnInitialStatus onInitialStatus) {
                         // TODO: do your work here

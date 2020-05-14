@@ -54,6 +54,10 @@ public class PlayerController{
     /* OnInitializedCallback */
     private OnInitializedCallback initializedCallback;
 
+    /**
+     * native层会回调这个函数
+     * @param initCode
+     */
     public void onInitializedFromNative(boolean initCode) {
         if (initializedCallback != null){
             OnInitializedCallback.OnInitialStatus onInitialStatus = initCode ? OnInitializedCallback.OnInitialStatus.CONNECT_SUCESS : OnInitializedCallback.OnInitialStatus.CONNECT_FAILED;

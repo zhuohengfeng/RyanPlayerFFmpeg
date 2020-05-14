@@ -170,7 +170,6 @@ protected:
 	/** 根据缓冲区来控制是否需要编解码的变量 **/
 	float bufferedDuration;//当前缓冲区时长
 
-	bool isHWCodecAvaliable();
 	virtual void createDecoderInstance();
 	virtual void initMeta();
 	void viewStreamMetaCallback(int videoWidth, int videoHeight, float duration);

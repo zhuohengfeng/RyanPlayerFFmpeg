@@ -324,40 +324,11 @@ int AVSynchronizer::getAudioSampleRate() {
 	return decoder->getAudioSampleRate();
 }
 
-bool AVSynchronizer::isHWCodecAvaliable() {
-	bool useMediaCodecDecoder = false;
-	JNIEnv *env = 0;
-	int status = 0;
-	bool needAttach = false;
-	status = g_jvm->GetEnv((void **) (&env), JNI_VERSION_1_4); // 是否跑在子线程？
-	// don't know why, if detach directly, will crash
-	if (status < 0) {
-		if (g_jvm->AttachCurrentThread(&env, NULL) != JNI_OK) {
-			LOGE("%s: AttachCurrentThread() failed", __FUNCTION__);
-			return false;
-		}
-		needAttach = true;
-	}
-	jclass jcls = env->GetObjectClass(obj);
-	jmethodID useMediaCodecFunc = env->GetMethodID(jcls, "isHWCodecAvaliableFromNative", "()Z");
-	useMediaCodecDecoder = (bool) env->CallBooleanMethod(obj, useMediaCodecFunc);
-	if (needAttach) {
-		if (g_jvm->DetachCurrentThread() != JNI_OK) {
-			LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
-		}
-	}
-	return useMediaCodecDecoder;
-}
-
 /**
  * 创建不同的解码器
  */
 void AVSynchronizer::createDecoderInstance() {
-//	if (this->isHWCodecAvaliable()){
-//		decoder = new MediaCodecVideoDecoder(g_jvm, obj);
-//	} else {
-		decoder = new FFMPEGVideoDecoder(g_jvm, obj);
-//	}
+	decoder = new FFMPEGVideoDecoder(g_jvm, obj);
 }
 
 void AVSynchronizer::initMeta() {
