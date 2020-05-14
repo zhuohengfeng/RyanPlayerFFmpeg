@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ryan FFmpeg播放器</string>
+
+    <string name="pause">暂停</string>
+    <string name="play">播放</string>
+    <string name="Video_Player">Video Player</string>
+    <string name="forward_page">进入播放页</string>
+    <string name="action_settings">Settings</string>
+</resources>
